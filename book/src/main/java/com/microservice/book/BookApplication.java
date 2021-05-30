@@ -1,5 +1,6 @@
 package com.microservice.book;
 
+import com.microservice.book.component.BookingComponent;
 import com.microservice.book.domain.BookingRecord;
 import com.microservice.book.domain.Inventory;
 import com.microservice.book.domain.Passenger;
@@ -22,6 +23,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BookApplication implements CommandLineRunner{
 
+
 	private static final Logger logger = LoggerFactory.getLogger(BookApplication.class);
 
 	public static void main(String[] args) {
@@ -31,6 +33,8 @@ public class BookApplication implements CommandLineRunner{
 	@Autowired
 	InventoryRepository inventoryRepository;
 
+	@Autowired
+	BookingComponent bookingComponent;
 
 	@Override
 	public void run(String... strings) throws Exception {
@@ -52,12 +56,12 @@ public class BookApplication implements CommandLineRunner{
 		passengers.add(new Passenger("Gean","Franc","Male", booking));
 		//	passengers.add(new Passenger("Redi","Ivan","Female",booking));
 
-//		booking.setPassengers(passengers);
-//		long record  = bookingComponent.book(booking);
-//		logger.info("Booking successfully saved..." + record);
-//
-//		logger.info("Looking to load booking record...");
-//		logger.info("Result: " + bookingComponent.getBooking(record));
+		booking.setPassengers(passengers);
+		long record  = bookingComponent.book(booking);
+		logger.info("Booking successfully saved..." + record);
+
+		logger.info("Looking to load booking record...");
+		logger.info("Result: " + bookingComponent.getBooking(record));
 
 
 	}
