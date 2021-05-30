@@ -18,7 +18,7 @@ public class Receiver {
 	}
 	@RabbitListener(queues = "CheckINQ")
     public void processMessage(long bookingID ) {
-		System.out.println(bookingID);
+		System.out.println("receiver processing message -> bookingID:" + bookingID);
 		bookingComponent.updateStatus(BookingStatus.CHECKED_IN, bookingID);
     }
 	

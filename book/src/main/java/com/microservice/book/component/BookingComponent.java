@@ -89,7 +89,8 @@ public class BookingComponent {
 	
 	
 	public void updateStatus(String status, long bookingId) {
-		BookingRecord record = bookingRepository.findById(new Long(bookingId)).get();
+
+		BookingRecord record = bookingRepository.findById(bookingId).get();
 		record.setStatus(status);
 	}
 	
