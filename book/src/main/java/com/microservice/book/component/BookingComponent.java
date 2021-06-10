@@ -22,8 +22,9 @@ import java.util.Set;
 @Component
 public class BookingComponent {
 	private static final Logger logger = LoggerFactory.getLogger(BookingComponent.class);
-	private static final String FareURL = "http://localhost:8080";
-	
+//	private static final String FareURL = "http://localhost:8080";
+
+	private static final String FareURL = "http://61.78.78.132:8080";
 	BookingRepository bookingRepository;
 	InventoryRepository inventoryRepository;
 	
